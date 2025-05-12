@@ -298,7 +298,7 @@ function mostrarImagem() {
 	  imgEsquerda.style.opacity = "0";
 	  imgDireita.style.visibility = "hidden";
 	  imgDireita.style.opacity = "0";
-	  botao.textContent = "Nosso Lance";
+	  botao.textContent = "UIS";
   
 	  // Parar e resetar a música
 	  clickSound.pause();
