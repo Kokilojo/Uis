@@ -1,0 +1,80 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+canvas {
+  display: block;
+}
+
+/* Div com botão e imagem sobre o canvas */
+/* Centralizando o botão no topo */
+#controle {
+  position: absolute;
+  top: 20px;  /* Distância do topo */
+  left: 50%;
+  transform: translateX(-50%);  /* Centraliza o botão */
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.4); /* Fundo transparente */
+  padding: 10px;
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+}
+
+/* Estilo do botão */
+/* Estilo do botão invisível, mas com texto visível */
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: transparent; /* Fundo transparente */
+  color: #000; /* Texto preto */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borda clara */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.3s;
+  backdrop-filter: blur(4px);
+  opacity: 0; /* Torna o botão invisível */
+  visibility: visible; /* Garante que o botão ainda seja visível */
+  animation: aparecer 2s ease forwards;
+  animation-delay: 1s;
+}
+
+@keyframes aparecer {
+  to {
+    opacity: 0.8;
+  }
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* Mudança de cor ao passar o mouse */
+  opacity: 1; /* Torna o botão visível quando o mouse passa sobre ele */
+}
+
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+}
+
+/* Imagens nas laterais */
+#minhaImagemEsquerda, #minhaImagemDireita {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 8s ease-in-out;
+  z-index: 5;
+}
+
+#minhaImagemEsquerda {
+  left: 5%;
+}
+
+#minhaImagemDireita {
+  right: 5%;
+}
