@@ -8,63 +8,50 @@
 
 canvas {
   display: block;
+  width: 100vw;
+  height: 100vh;
 }
 
-/* Div com botão e imagem sobre o canvas */
-/* Centralizando o botão no topo */
+/* Botão central no topo */
 #controle {
   position: absolute;
-  top: 20px;  /* Distância do topo */
+  top: 20px;
   left: 50%;
-  transform: translateX(-50%);  /* Centraliza o botão */
+  transform: translateX(-50%);
   z-index: 10;
-  background-color: rgba(255, 255, 255, 0.4); /* Fundo transparente */
+  background-color: rgba(255, 255, 255, 0.4);
   padding: 10px;
   border-radius: 10px;
   backdrop-filter: blur(5px);
 }
 
-/* Estilo do botão */
-/* Estilo do botão invisível, mas com texto visível */
 button {
   padding: 10px 20px;
   font-size: 16px;
-  background-color: transparent; /* Fundo transparente */
-  color: #000; /* Texto preto */
-  border: 1px solid rgba(255, 255, 255, 0.3); /* Borda clara */
+  background-color: transparent;
+  color: #000;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s, opacity 0.3s;
   backdrop-filter: blur(4px);
-  opacity: 0; /* Torna o botão invisível */
-  visibility: visible; /* Garante que o botão ainda seja visível */
-  animation: aparecer 2s ease forwards;
-  animation-delay: 1s;
+  opacity: 0;
+  visibility: visible;
 }
-
-@keyframes aparecer {
-  to {
-    opacity: 0.8;
-  }
-}
-
-button:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Mudança de cor ao passar o mouse */
-  opacity: 1; /* Torna o botão visível quando o mouse passa sobre ele */
-}
-
 
 button:hover {
   background-color: rgba(255, 255, 255, 0.2);
   opacity: 1;
 }
 
-/* Imagens nas laterais */
-#minhaImagemEsquerda, #minhaImagemDireita {
+/* Imagens laterais responsivas */
+#minhaImagemEsquerda,
+#minhaImagemDireita {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 300px;
+  width: 20vw;
+  max-width: 300px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 8s ease-in-out;
@@ -77,4 +64,24 @@ button:hover {
 
 #minhaImagemDireita {
   right: 5%;
+}
+
+/* Responsividade adicional para telas pequenas */
+@media (max-width: 768px) {
+  button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+
+  #minhaImagemEsquerda,
+  #minhaImagemDireita {
+    width: 30vw;
+  }
+}
+
+@media (max-width: 480px) {
+  #minhaImagemEsquerda,
+  #minhaImagemDireita {
+    display: none; /* Esconde as imagens em telas muito pequenas */
+  }
 }
