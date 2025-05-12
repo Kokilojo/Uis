@@ -282,7 +282,7 @@ function draw(){
 draw();
 
 // Carregar som
-var clickSound = new Audio('infinity.mp3');
+var clickSound = new Audio('infinity2.mp3');
 clickSound.volume = 0.5;
 
 function mostrarImagem() {
